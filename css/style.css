@@ -1,0 +1,41 @@
+/* Put your CSS here */
+.ember-application {
+    margin: 20px;
+}
+
+.force-inputs{
+  width: 70px;
+}
+
+nav{
+  margin-bottom: 3em;
+  background-color: #ddd;
+  padding: 1em;
+}
+
+nav a {
+  color: black;
+  text-decoration: none;
+}
+
+nav li a:hover{
+  color: red;
+  text-decoration: none;
+}
+
+nav h2{
+  margin-left: 0;
+  display: inline;
+}
+
+nav ul{
+  padding-left: 1em;
+  display: inline;
+}
+
+nav li{
+  display: inline;
+  list-style: none;
+  margin-right: 1em;
+}
+
