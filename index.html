@@ -13,31 +13,40 @@
     <ul>
       <li>{{#link-to 'index'}}Home{{/link-to}}</li>
       <li>{{#link-to 'experiments'}}Experiments{{/link-to}}</li>
+      <li>{{#link-to 'about'}}About{{/link-to}}</li>
     </ul>
   </nav>
 
-    {{outlet}}
-
+    <div class='main-container'>
+      {{outlet}}
+    </div>
   </script>
 
   <script type="text/x-handlebars" id="index">
     <h1>{{model.title}}</h1>
     <h3>{{model.subTitle}}</h3>
 
-    <ul>
+    <ul class='main-ul'>
     {{#each link in model.links}}
       <li>{{#link-to link.href}}{{link.text}}{{/link-to}}</li>
     {{/each}}
     </ul>
   </script>
 
+  <script type="text/x-handlebars" id="about">
+    <h1>{{model.title}}</h1>
+    <p>{{model.info}}</p>
+  </script>
+
   <script type="text/x-handlebars" id="experiments">
     <h1>{{model.title}}</h1>
-    <ul>
-    {{#each link in model.links}}
-      <li>{{#link-to link.href}}{{link.text}}{{/link-to}}</li>
-    {{/each}}
-    </ul>
+    <div class='ul-container'>
+      <ul class='main-ul'>
+      {{#each link in model.links}}
+        <li>{{#link-to link.href}}{{link.text}}{{/link-to}}</li>
+      {{/each}}
+      </ul>
+    </div>
   </script>
 
   <script type="text/x-handlebars" id="force">
