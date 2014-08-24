@@ -80,5 +80,5 @@ $(document).on('ready', function(){
   $('#y').on('change', function(){
     currentY = parseInt(this.value)
     bellCurve.display(currentX, currentY * 0.2);
-  })
+  });
 });
