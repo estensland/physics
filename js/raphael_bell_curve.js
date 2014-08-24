@@ -50,12 +50,12 @@ bellCurve ={
     return returned;
   },
 
-  sanitizeX: function(x){
-    return x - 4
+  modifyX: function(x){
+    return x;
   },
 
   sanitizeY: function(Y){
-    return y * 0.2
+    return y * 0.2;
   },
 
   display: function(x,y){
@@ -73,9 +73,9 @@ $(document).on('ready', function(){
 
   bellCurve.display(1,1);
   $('#x').on('change', function(){
-    currentX = parseInt(this.value)
+    currentX = parseInt(this.value);
     bellCurve.display(currentX, currentY * 0.2);
-  })
+  });
 
   $('#y').on('change', function(){
     currentY = parseInt(this.value)
