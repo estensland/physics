@@ -52,6 +52,7 @@ bellCurve ={
 
   setXByY: function(xValue, y){
     var xs = this.setX(xValue);
+    return xs
     var returned = [];
 
     if (y < 6){
