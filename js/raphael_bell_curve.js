@@ -27,7 +27,7 @@ bellCurve ={
   },
 
   basePoints: {
-              'x': [1 ,2,3,4,5,6,7,8,9,10,11,12],
+              'x': [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
               'y': [0 , 0.45 , 1.71 , 4.680000000000001 , 8.64 , 10.8 , 10.8 , 8.64 , 4.680000000000001 , 1.71, 0.45, 0]
 
               },
@@ -36,7 +36,7 @@ bellCurve ={
     var xs = this.basePoints.x;
     var returned = [];
     for (var i = 0; i < xs.length; i ++){
-      returned.push(xs[i] + difference);
+      returned.push(xs[i] + difference - 5);
     }
     return returned;
   },
@@ -50,8 +50,22 @@ bellCurve ={
     return returned;
   },
 
-  modifyX: function(x){
-    return x;
+  setXByY: function(xValue, y){
+    var xs = this.setX(xValue);
+    var returned = [];
+    
+    if (y < 6){
+      var alter = (5 - y) * 0.1
+    }
+    else {
+      var alter = (y - 5) * 0.1
+    }
+
+    for (var i = 0; i < xs.length; i ++){
+      if (i === 6) {returned.push(xs[i])}
+      else if (i > 6)
+    }
+    return returned;;
   },
 
   sanitizeY: function(Y){
@@ -66,12 +80,12 @@ bellCurve ={
   }
 };
 
-var currentX = 1;
+var currentX = 5;
 var currentY = 5;
 
 $(document).on('ready', function(){
 
-  bellCurve.display(1,1);
+  bellCurve.display(5,1);
   $('#x').on('change', function(){
     currentX = parseInt(this.value);
     bellCurve.display(currentX, currentY * 0.2);
