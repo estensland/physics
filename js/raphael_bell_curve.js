@@ -53,7 +53,7 @@ bellCurve ={
   setXByY: function(xValue, y){
     var xs = this.setX(xValue);
     var returned = [];
-    
+
     if (y < 6){
       var alter = (5 - y) * 0.1
     }
@@ -63,7 +63,14 @@ bellCurve ={
 
     for (var i = 0; i < xs.length; i ++){
       if (i === 6) {returned.push(xs[i])}
-      else if (i > 6)
+      else if (i > 6){
+        var diff = 11 - i
+        returned.push(xs[i] - diff * alter)
+      }
+      else{
+        var diff = 6 - i
+        returned.push(xs[i] + diff * alter)
+      }
     }
     return returned;;
   },
@@ -75,7 +82,7 @@ bellCurve ={
   display: function(x,y){
     bellCurve.wipeCanvas('canvas');
     canvas = bellCurve.prepCanvas('canvas');
-    var points = {'x': bellCurve.setX(x), 'y': bellCurve.setY(y)};
+    var points = {'x': bellCurve.setXByY(x, y), 'y': bellCurve.setY(y)};
     bellCurve.createGraph(canvas, points);
   }
 };
