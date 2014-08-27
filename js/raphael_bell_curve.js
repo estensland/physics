@@ -83,12 +83,12 @@ $(document).on('ready', function(){
 
   bellCurve.display(5,1);
   $('#x').on('change', function(){
-    currentX = parseInt(this.value);
+    currentX = parseInt(this.value, 10);
     bellCurve.display(currentX, currentY * 0.2);
   });
 
   $('#y').on('change', function(){
-    currentY = parseInt(this.value)
+    currentY = parseInt(this.value, 10)
     bellCurve.display(currentX, currentY * 0.2);
   });
 });
