@@ -55,12 +55,21 @@ bellCurve ={
     var returned = [];
     var middle = xs[5];
     var alter = (y - 5) * 0.1;
-
+    console.log(middle)
     for (var i = 0; i < xs.length; i ++){
+
       var value = xs[i];
-      var diff = 11 - i;
-      returned.push(xs[i] + (diff * alter));
+      if (value <= middle){
+        var diff = middle -1 - value;
+        var result = (xs[i] + (diff * alter));
+      }
+      else{
+        var diff = middle + 2 - value;
+        var result = (xs[i] + (diff * alter));
+      }
+      returned.push(result);
     }
+    console.log(returned)
     return returned;
   },
 
@@ -88,7 +97,7 @@ $(document).on('ready', function(){
   });
 
   $('#y').on('change', function(){
-    currentY = parseInt(this.value, 10)
+    currentY = parseInt(this.value, 10);
     bellCurve.display(currentX, currentY * 0.2);
   });
 });
