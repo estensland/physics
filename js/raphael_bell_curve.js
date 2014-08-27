@@ -1,6 +1,6 @@
 bellCurve ={
-  wipeCanvas: function(id){
-    $('#' + id).html('');
+  wipeCanvas: function(){
+    $('svg').html('');
   },
 
   prepCanvas: function(id){
@@ -8,7 +8,7 @@ bellCurve ={
   },
 
   createGraph: function(canvas, points){
-    var paper = Raphael(10, 50, 320, 200);
+    var paper = Raphael(20, 60, 400, 250);
     paper.linechart(
       10, 10,      // top left anchor
       400, 220,    // bottom right anchor
@@ -61,8 +61,6 @@ bellCurve ={
     for (var i = 0; i < xs.length; i ++){
       var result = ''
       var value = xs[i];
-      console.log(value <= middle)
-      console.log(value >= middle)
       if (value <= middle){
         if (alter === 0){result = xs[i]}
         else {
@@ -103,22 +101,7 @@ $(document).on('ready', function(){
     currentX = parseInt(this.value, 10);
     bellCurve.display(currentX, currentY * 0.2);
   });
-paper.add([
-    {
-        type: "circle",
-        cx: 10,
-        cy: 10,
-        r: 5
-    },
-    {
-        type: "rect",
-        x: 10,
-        y: 10,
-        width: 10,
-        height: 10,
-        fill: "#fc0"
-    }
-]);
+
   $('#y').on('change', function(){
     currentY = parseInt(this.value, 10);
     bellCurve.display(currentX, currentY * 0.2);
