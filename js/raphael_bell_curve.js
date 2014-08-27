@@ -52,28 +52,16 @@ bellCurve ={
 
   setXByY: function(xValue, y){
     var xs = this.setX(xValue);
-    return xs
     var returned = [];
-
-    if (y < 6){
-      var alter = (5 - y) * 0.1
-    }
-    else {
-      var alter = (y - 5) * 0.1
-    }
+    var middle = xs[5];
+    var alter = (y - 5) * 0.1;
 
     for (var i = 0; i < xs.length; i ++){
-      if (i === 6) {returned.push(xs[i])}
-      else if (i > 6){
-        var diff = 11 - i
-        returned.push(xs[i] - diff * alter)
-      }
-      else{
-        var diff = 6 - i
-        returned.push(xs[i] + diff * alter)
-      }
+      var value = xs[i];
+      var diff = 11 - i;
+      returned.push(xs[i] + (diff * alter));
     }
-    return returned;;
+    return returned;
   },
 
   sanitizeY: function(Y){
