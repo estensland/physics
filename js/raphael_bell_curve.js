@@ -4,11 +4,12 @@ bellCurve ={
   },
 
   prepCanvas: function(id){
-    return Raphael(id);
+    return 1
   },
 
   createGraph: function(canvas, points){
-    canvas.g.linechart(
+    var paper = Raphael(10, 50, 320, 200);
+    paper.linechart(
       10, 10,      // top left anchor
       400, 220,    // bottom right anchor
       [points.x, [0,30]],
@@ -17,6 +18,7 @@ bellCurve ={
         nostroke: false,
         // symbol: 'disc',
         axis: "0 0 1 1",
+        axisxstep: 0,
         smooth: true,
         colors: [
           "#995555",
@@ -54,22 +56,29 @@ bellCurve ={
     var xs = this.setX(xValue);
     var returned = [];
     var middle = xs[5];
-    var alter = (y - 5) * 0.1;
-    console.log(middle)
-    for (var i = 0; i < xs.length; i ++){
+    var alter = (y / 0.2 - 5) * 0.1;
 
+    for (var i = 0; i < xs.length; i ++){
+      var result = ''
       var value = xs[i];
+      console.log(value <= middle)
+      console.log(value >= middle)
       if (value <= middle){
-        var diff = middle -1 - value;
-        var result = (xs[i] + (diff * alter));
+        if (alter === 0){result = xs[i]}
+        else {
+          var diff = middle - 1 - value;
+          result = (xs[i] + (diff * alter));
+        }
       }
       else{
-        var diff = middle + 2 - value;
-        var result = (xs[i] + (diff * alter));
+        if (alter === 0){result = xs[i]}
+        else {
+          var diff = middle + 2 - value;
+          result = (xs[i] + (diff * alter));
+        }
       }
       returned.push(result);
     }
-    console.log(returned)
     return returned;
   },
 
@@ -89,13 +98,27 @@ var currentX = 5;
 var currentY = 5;
 
 $(document).on('ready', function(){
-
   bellCurve.display(5,1);
   $('#x').on('change', function(){
     currentX = parseInt(this.value, 10);
     bellCurve.display(currentX, currentY * 0.2);
   });
-
+paper.add([
+    {
+        type: "circle",
+        cx: 10,
+        cy: 10,
+        r: 5
+    },
+    {
+        type: "rect",
+        x: 10,
+        y: 10,
+        width: 10,
+        height: 10,
+        fill: "#fc0"
+    }
+]);
   $('#y').on('change', function(){
     currentY = parseInt(this.value, 10);
     bellCurve.display(currentX, currentY * 0.2);
