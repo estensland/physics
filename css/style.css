@@ -55,3 +55,20 @@ nav li{
   padding-left: 0;
   list-style: none;
 }
+
+.controls-container{
+  margin-left: 35px;
+  display: block;
+}
+
+.input-container{
+  margin-top: 8px;
+}
+
+.x-label{
+  margin-left: 35px;
+}
+
+.y-label{
+  margin-left: 62px;
+}

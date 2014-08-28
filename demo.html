@@ -8,10 +8,16 @@
 </head>
 
 <body>
-  <div id='canvas' style='height: 300px;'></div>
-
-  <input id='x' type="range" min='0' max='10' value='5'>
-  <input id='y' type="range" min='0' max='10'>
+  <div class='controls-container'>
+    <div>
+      <label class='x-label' for="x">Accuracy</label>
+      <label class='y-label' for="y">Precision</label>
+    </div>
+    <div class='input-container'>
+      <input id='x' type="range" min='0' max='10' value='5'>
+      <input id='y' type="range" min='0' max='10'>
+    </div>
+  </div>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
