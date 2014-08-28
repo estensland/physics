@@ -57,12 +57,13 @@ nav li{
 }
 
 .controls-container{
+  margin-top: 300px;
   margin-left: 35px;
   display: block;
 }
 
 .input-container{
-  margin-top: 8px;
+  padding-top: 8px;
 }
 
 .x-label{

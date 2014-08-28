@@ -3,19 +3,23 @@ bellCurve ={
     $('svg').html('');
   },
 
+  prepCanvas: function(id){
+    return 1;
+  },
+
   drawXZero: function(canvas, points){
-    var paper = Raphael(document.getElementById('canvas'), 400, 250);
+    var paper = Raphael(20, 60, 400, 250);
     var line = paper.path( "M166,240 L166,10" );
   },
 
   drawXAxis: function(){
-    var paper = Raphael(document.getElementById('canvas'), 400, 250);
+    var paper = Raphael(20, 60, 400, 250);
     paper.path( "M300,220 L20,220" );
     paper.path( "M300,220 L20,220" );
   },
 
   createGraph: function(canvas, points){
-    var paper = Raphael(document.getElementById('canvas'), 400, 250);
+    var paper = Raphael(20, 60, 400, 250);
     paper.linechart(
       10, 10,      // top left anchor
       400, 220,    // bottom right anchor
@@ -93,6 +97,7 @@ bellCurve ={
 
   display: function(x,y){
     bellCurve.wipeCanvas('canvas');
+    canvas = bellCurve.prepCanvas('canvas');
     var points = {'x': bellCurve.setXByY(x, y), 'y': bellCurve.setY(y)};
     bellCurve.createGraph(canvas, points);
     bellCurve.drawXZero();
@@ -100,19 +105,19 @@ bellCurve ={
   }
 };
 
-// var currentX = 5;
-// var currentY = 5;
+var currentX = 5;
+var currentY = 5;
 
-// $(document).on('ready', function(){
-//   bellCurve.display(5,1);
-//   bellCurve.drawXZero();
-//   $('#x').on('change', function(){
-//     currentX = parseInt(this.value, 10);
-//     bellCurve.display(currentX, currentY * 0.2);
-//   });
+$(document).on('ready', function(){
+  bellCurve.display(5,1);
+  bellCurve.drawXZero();
+  $('#x').on('change', function(){
+    currentX = parseInt(this.value, 10);
+    bellCurve.display(currentX, currentY * 0.2);
+  });
 
-//   $('#y').on('change', function(){
-//     currentY = parseInt(this.value, 10);
-//     bellCurve.display(currentX, currentY * 0.2);
-//   });
-// });
+  $('#y').on('change', function(){
+    currentY = parseInt(this.value, 10);
+    bellCurve.display(currentX, currentY * 0.2);
+  });
+});
