@@ -58,7 +58,17 @@ bellCurve ={
     var ys = this.basePoints.y;
     var returned = [];
     for (var i = 0; i < ys.length; i ++){
-      returned.push(ys[i] * difference);
+      if (difference > 1.5){
+        if(i < 5 || i > 6){
+          returned.push(ys[i] * difference * .1);
+        }
+        else{
+          returned.push(ys[i] * difference);
+        }
+      }
+      else{
+        returned.push(ys[i] * difference);
+      }
     }
     return returned;
   },
@@ -68,7 +78,6 @@ bellCurve ={
     var returned = [];
     var middle = xs[5];
     var alter = (y / 0.2 - 5) * 0.1;
-
     for (var i = 0; i < xs.length; i ++){
       var result = '';
       var value = xs[i];
@@ -76,14 +85,32 @@ bellCurve ={
         if (alter === 0){result = xs[i];}
         else {
           var diff = middle - 1 - value;
-          result = (xs[i] + (diff * alter));
+          if (diff >  0 && alter < 0){
+            result = (xs[i] + (diff * alter * 3.5));
+          }
+          else if (y > 1.5 && (i == 5 || i == 6) ) {
+            result = (xs[i] + (diff * alter) +.5);
+            console.log(result)
+          }
+          else{
+            result = (xs[i] + (diff * alter));
+          }
         }
       }
       else{
         if (alter === 0){result = xs[i];}
         else {
           var diff = middle + 2 - value;
-          result = (xs[i] + (diff * alter));
+          if (diff < 0 && alter < 0){
+            result = (xs[i] + (diff * alter * 3.5));
+          }
+          else if (y > 1.5 && (i == 5 || i == 6) ) {
+            result = (xs[i] + (diff * alter) -.5);
+            console.log(result)
+          }
+          else{
+            result = (xs[i] + (diff * alter));
+          }
         }
       }
       returned.push(result);
