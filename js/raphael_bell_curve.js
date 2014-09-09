@@ -19,6 +19,10 @@ bellCurve ={
   },
 
   createGraph: function(canvas, points){
+    if (points.y == ''){
+      points.y =[.5, 1,1, .5];
+      points.x = [points.x[0], points.x[1], points.x[10], points.x[11]];
+    }
     var paper = Raphael(20, 60, 400, 250);
     paper.linechart(
       10, 10,      // top left anchor
@@ -58,12 +62,34 @@ bellCurve ={
     var ys = this.basePoints.y;
     var returned = [];
     for (var i = 0; i < ys.length; i ++){
-      if (difference > 1.5){
+      if (difference > 1.8){
         if(i < 5 || i > 6){
-          returned.push(ys[i] * difference * .1);
+          returned.push(0);
         }
         else{
           returned.push(ys[i] * difference);
+        }
+      }
+      else if (difference > 1.6){
+        if(i < 4 || i > 7){
+          returned.push(0);
+        }
+        else{
+          returned.push(ys[i] * difference);
+        }
+      }
+      else if (difference < 0.1){
+
+      }
+      else if (difference < 0.3){
+        if(i == 6 || i == 5){
+          returned.push(ys[i] * difference + 1.1);
+        }
+        else if(i < 11 && i > 0){
+          returned.push(ys[i] * difference + 1.2);
+        }
+        else{
+          returned.push(ys[i] * difference * 1.4);
         }
       }
       else{
@@ -88,9 +114,14 @@ bellCurve ={
           if (diff >  0 && alter < 0){
             result = (xs[i] + (diff * alter * 3.5));
           }
-          else if (y > 1.5 && (i == 5 || i == 6) ) {
-            result = (xs[i] + (diff * alter) +.5);
-            console.log(result)
+          else if (y > 1.8 && i == 5 ) {
+            result = (xs[i] + (diff * alter) + 0.9);
+          }
+          else if (y > 1.5 && i == 5 ) {
+            result = (xs[i] + (diff * alter) + 0.5);
+          }
+          else if (y > 1.6 && i == 4 ) {
+            result = (xs[i] + (diff * alter) + 0.3);
           }
           else{
             result = (xs[i] + (diff * alter));
@@ -104,9 +135,14 @@ bellCurve ={
           if (diff < 0 && alter < 0){
             result = (xs[i] + (diff * alter * 3.5));
           }
-          else if (y > 1.5 && (i == 5 || i == 6) ) {
-            result = (xs[i] + (diff * alter) -.5);
-            console.log(result)
+          else if (y > 1.8 && i == 6 ) {
+            result = (xs[i] + (diff * alter) - 0.9);
+          }
+          else if (y > 1.5 && i == 6 ) {
+            result = (xs[i] + (diff * alter) - 0.5);
+          }
+          else if (y > 1.6 && i == 7 ) {
+            result = (xs[i] + (diff * alter) - 0.3);
           }
           else{
             result = (xs[i] + (diff * alter));
