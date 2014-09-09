@@ -25,14 +25,22 @@ App.AboutRoute = Ember.Route.extend({
   }
 });
 
-App.AccuracyRoute = Ember.Route.extend({
-   activate: function() {
+// App.AccuracyRoute = Ember.Route.extend({
+//    activate: function() {
 
-  }
-});
+//   }
+// });
 
 App.RaphaelPaper = Ember.Object.extend({
   init: function() {
+    console.log('blah')
+  }
+})
+
+App.papers = Ember.Object.create({});
+
+App.RaphaelView = Ember.View.extend({
+  didInsertElement: function() {
     var currentX = 5;
     var currentY = 5;
     $(document).on('ready', function(){
@@ -48,18 +56,6 @@ App.RaphaelPaper = Ember.Object.extend({
         bellCurve.display(currentX, currentY * 0.2);
       });
     });
-  }
-})
-
-App.papers = Ember.Object.create({});
-
-App.RaphaelView = Ember.View.extend({
-  didInsertElement: function() {
-    Ember.bind(this, "paper", 'App.papers.' + this.get('elementId'));
-    App.papers.set(this.get('elementId'), App.RaphaelPaper.create({
-      elementId: this.get('elementId'),
-      path: this.get('path')
-    }));
   }
 });
 
