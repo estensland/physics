@@ -2,17 +2,16 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Physics Fun</title>
+  <title>Physics</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <script type="text/x-handlebars">
   <nav>
-    <h2>{{#link-to 'index'}}Science Rules{{/link-to}}</h2>
+    <h2>{{#link-to 'index'}}Science!{{/link-to}}</h2>
     <ul>
-      <li>{{#link-to 'index'}}Home{{/link-to}}</li>
-      <li>{{#link-to 'experiments'}}Experiments{{/link-to}}</li>
+      <li>{{#link-to 'accuracy'}}Accuracy vs. Precision{{/link-to}}</li>
       <li>{{#link-to 'about'}}About{{/link-to}}</li>
     </ul>
   </nav>
@@ -38,18 +37,8 @@
     <p>{{model.info}}</p>
   </script>
 
-  <script type="text/x-handlebars" id="experiments">
-    <h1>{{model.title}}</h1>
-    <div class='ul-container'>
-      <ul class='main-ul'>
-      {{#each link in model.links}}
-        <li>{{#link-to link.href}}{{link.text}}{{/link-to}}</li>
-      {{/each}}
-      </ul>
-    </div>
-  </script>
-
-  <script type="text/x-handlebars" id="force">
+  <script type="text/x-handlebars" id="accuracy">
+    {{view 'App.RaphaelView'}}
     <div id='canvas'> </div>
     <div class='controls-container'>
       <div>

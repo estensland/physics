@@ -171,16 +171,16 @@ bellCurve ={
 var currentX = 5;
 var currentY = 5;
 
-$(document).on('ready', function(){
-  bellCurve.display(5,1);
-  bellCurve.drawXZero();
-  $('#x').on('change', function(){
-    currentX = parseInt(this.value, 10);
-    bellCurve.display(currentX, currentY * 0.2);
-  });
+// $(document).on('ready', function(){
+//   bellCurve.display(5,1);
+//   bellCurve.drawXZero();
+//   $('#x').on('change', function(){
+//     currentX = parseInt(this.value, 10);
+//     bellCurve.display(currentX, currentY * 0.2);
+//   });
 
-  $('#y').on('change', function(){
-    currentY = parseInt(this.value, 10);
-    bellCurve.display(currentX, currentY * 0.2);
-  });
-});
+//   $('#y').on('change', function(){
+//     currentY = parseInt(this.value, 10);
+//     bellCurve.display(currentX, currentY * 0.2);
+//   });
+// });
