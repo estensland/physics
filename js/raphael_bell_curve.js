@@ -9,18 +9,18 @@ bellCurve ={
 
   drawXZero: function(canvas, points){
     var paper = Raphael(20, 60, 400, 250);
-    var line = paper.path( "M166,240 L166,10" );
+    var line = paper.path( "M279.5,240 L279.5,10" );
   },
 
   drawXAxis: function(){
-    var paper = Raphael(20, 60, 400, 250);
-    paper.path( "M300,220 L20,220" );
-    paper.path( "M300,220 L20,220" );
+    var paper = Raphael(20, 60, 700, 250);
+    paper.path( "M450,220 L20,220" );
+    paper.path( "M450,220 L20,220" );
   },
 
   createGraph: function(canvas, points){
     if (points.y == ''){
-      points.y =[.5, 1,1, .5];
+      points.y =[0.5, 1,1, 0.5];
       points.x = [points.x[0], points.x[1], points.x[10], points.x[11]];
     }
     var paper = Raphael(20, 60, 400, 250);
@@ -44,7 +44,7 @@ bellCurve ={
   },
 
   basePoints: {
-              'x': [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+              'x': [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
               'y': [0 , 0.45 , 1.71 , 4.680000000000001 , 8.64 , 10.8 , 10.8 , 8.64 , 4.680000000000001 , 1.71, 0.45, 0]
 
               },
@@ -168,11 +168,11 @@ bellCurve ={
   }
 };
 
-// var currentX = 5;
-// var currentY = 5;
+var currentX = 0;
+var currentY = 5;
 
-// $(document).on('ready', function(){
-  bellCurve.display(5,1);
+$(document).on('ready', function(){
+  bellCurve.display(0,1);
   bellCurve.drawXZero();
   $('#x').on('change', function(){
     currentX = parseInt(this.value, 10);
@@ -183,4 +183,4 @@ bellCurve ={
     currentY = parseInt(this.value, 10);
     bellCurve.display(currentX, currentY * 0.2);
   });
-// });
+});
