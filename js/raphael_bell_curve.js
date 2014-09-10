@@ -13,9 +13,9 @@ bellCurve ={
   },
 
   drawXAxis: function(){
-    var paper = Raphael(20, 60, 700, 250);
-    paper.path( "M450,220 L20,220" );
-    paper.path( "M450,220 L20,220" );
+    var paper = Raphael(20, 60, 1000, 250);
+    paper.path( "M500,220 L20,220" );
+    paper.path( "M500,220 L20,220" );
   },
 
   createGraph: function(canvas, points){
