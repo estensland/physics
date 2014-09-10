@@ -168,10 +168,10 @@ bellCurve ={
   }
 };
 
-var currentX = 5;
-var currentY = 5;
+// var currentX = 5;
+// var currentY = 5;
 
-$(document).on('ready', function(){
+// $(document).on('ready', function(){
   bellCurve.display(5,1);
   bellCurve.drawXZero();
   $('#x').on('change', function(){
@@ -183,4 +183,4 @@ $(document).on('ready', function(){
     currentY = parseInt(this.value, 10);
     bellCurve.display(currentX, currentY * 0.2);
   });
-});
+// });
