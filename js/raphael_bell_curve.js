@@ -13,14 +13,14 @@ bellCurve ={
   },
 
   drawXAxis: function(){
-    var paper = Raphael(20, 60, 1000, 250);
-    paper.path( "M500,220 L20,220" );
-    paper.path( "M500,220 L20,220" );
+    var paper = Raphael(20, 60, 1500, 250);
+    paper.path( "M600,220 L20,220" );
+    paper.path( "M600,220 L20,220" );
   },
 
   createGraph: function(canvas, points){
     if (points.y == ''){
-      points.y =[0.5, 1,1, 0.5];
+      points.y = [0.5, 1,1, 0.5];
       points.x = [points.x[0], points.x[1], points.x[10], points.x[11]];
     }
     var paper = Raphael(20, 60, 400, 250);
