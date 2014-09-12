@@ -9,7 +9,7 @@ bellCurve ={
 
   drawXZero: function(canvas, points){
     var paper = Raphael(20, 60, 700, 250);
-    var line = paper.path( "M254.3,240 L254.3,10" );
+    var line = paper.path( "M377.7,240 L377.7,10" );
   },
 
   drawXAxis: function(){
@@ -26,7 +26,7 @@ bellCurve ={
     var paper = Raphael(20, 60, 700, 250);
     paper.linechart(
       10, 10,      // top left anchor
-      400, 220,    // bottom right anchor
+      600, 220,    // bottom right anchor
       [points.x, [0,30]],
       [points.y, [0,20]],
       {
