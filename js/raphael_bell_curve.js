@@ -3,10 +3,6 @@ bellCurve ={
     $('svg').remove();
   },
 
-  prepCanvas: function(id){
-    return 1;
-  },
-
   drawXZero: function(canvas, points){
     var paper = Raphael(20, 60, 700, 250);
     var line = paper.path( "M377.7,240 L377.7,10" );
@@ -18,7 +14,7 @@ bellCurve ={
     paper.path( "M600,220 L20,220" );
   },
 
-  createGraph: function(canvas, points){
+  createGraph: function(points){
     if (points.y == ''){
       points.y = [0.5, 1,1, 0.5];
       points.x = [points.x[0], points.x[1], points.x[10], points.x[11]];
@@ -159,10 +155,9 @@ bellCurve ={
   },
 
   display: function(x,y){
-    bellCurve.wipeCanvas('canvas');
-    canvas = bellCurve.prepCanvas('canvas');
+    bellCurve.wipeCanvas();
     var points = {'x': bellCurve.setXByY(x, y), 'y': bellCurve.setY(y)};
-    bellCurve.createGraph(canvas, points);
+    bellCurve.createGraph(points);
     bellCurve.drawXZero();
     bellCurve.drawXAxis();
   }
