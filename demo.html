@@ -21,10 +21,13 @@
       padding-top: 8px;
     }
     .x-label{
-      margin-left: 35px;
+      margin-left: 75px;
     }
     .y-label{
-      margin-left: 62px;
+      margin-left: 198px;
+    }
+    .y-span{
+      margin-left: 4em;
     }
   </style>
 </head>
@@ -37,8 +40,8 @@
       <label class='y-label' for="y">Precision</label>
     </div>
     <div class='input-container'>
-      <input id='x' type="range" min='0' max='10' value='0'>
-      <input id='y' type="range" min='0' max='10'>
+      <span> Low <input id='x' type="range" min='0' max='10' value='0'> High </span>
+      <span class='y-span'> Low <input id='y' type="range" min='0' max='10'> High </span>
     </div>
   </div>
 

@@ -60,7 +60,7 @@ bellCurve ={
     for (var i = 0; i < ys.length; i ++){
       if (difference > 1.8){
         if(i < 5 || i > 6){
-          returned.push(0);
+          returned.push(0.1 * difference);
         }
         else{
           returned.push(ys[i] * difference);
@@ -68,7 +68,7 @@ bellCurve ={
       }
       else if (difference > 1.6){
         if(i < 4 || i > 7){
-          returned.push(0);
+          returned.push(0.1 * difference);
         }
         else{
           returned.push(ys[i] * difference);
